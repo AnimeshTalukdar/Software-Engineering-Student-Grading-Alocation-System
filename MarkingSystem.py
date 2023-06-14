@@ -31,6 +31,7 @@ def main():
         main()
     main()
 
+# add student
 def addStudent(marks):
     roll = input("Enter roll number: ").strip()
     if roll in marks:
@@ -48,6 +49,7 @@ def addStudent(marks):
     print("Student added successfully")
     store_marks(marks)
 
+# delete student
 def deleteStudent(marks):
     roll = input("Enter roll number: ").strip()
     if roll not in marks:
@@ -57,7 +59,7 @@ def deleteStudent(marks):
     print("Student deleted successfully")
     store_marks(marks)
 
-
+# update marks and calculate grade
 def updateStudent(marks):
     roll = input("Enter roll number: ").strip()
     if roll not in marks:
@@ -75,7 +77,7 @@ def updateStudent(marks):
     print("Student updated successfully")
     store_marks(marks)
 
-
+# input marks and calculate grade
 def viewStudent(marks):
     roll = input("Enter roll number: ").strip()
     if roll not in marks:
@@ -91,7 +93,7 @@ def viewStudent(marks):
     print()
 
 
-
+# print all students' marks
 def viewAll(marks):
     for roll in marks:
         print("Roll:",roll)
@@ -104,7 +106,7 @@ def viewAll(marks):
         print("Grade:",marks[roll][6])
         print()
 
-
+# 500 to 450 - A, 400 to 449 - B, 350 to 399 - C, 300 to 349 - D, < 300 - F 
 def calculateGrade(phy,che,bio,math,computer):
     total = int(phy) + int(che) + int(bio) + int(math) + int(computer)
     if total >= 450:
@@ -120,7 +122,8 @@ def calculateGrade(phy,che,bio,math,computer):
     
 
 
-
+# store marks in file 
+# stor maks like {roll:[name,phy,che,bio,math,computer,grade]}
 def store_marks(marks):
     with open("marking.csv","w") as file:
         for roll in marks:
